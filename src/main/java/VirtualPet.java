@@ -2,12 +2,15 @@
 public class VirtualPet {
 
 	// instance variables
-	private int hunger;
-	private int thirst;
-	private int weight;
-	private int energy;
-	private String name;
-	private String description;
+	protected int hunger;
+	protected int thirst;
+	protected int weight;
+	protected int energy;
+	protected String name;
+	protected String description;
+	protected int health;
+	protected int happiness;
+	protected int waste;
 
 	// constructors
 
@@ -39,6 +42,18 @@ public class VirtualPet {
 		this.weight = weight;
 		this.energy = energy;
 	}
+	
+	public VirtualPet(String name, String description, int hunger, int thirst, int weight, int energy, int health, int happiness, int waste) {
+		this.name = name;
+		this.description = description;
+		this.hunger = hunger;
+		this.thirst = thirst;
+		this.weight = weight;
+		this.energy = energy;
+		this.health = health;
+		this.happiness = happiness;
+		this.waste = waste;
+	}
 
 	// getters
 
@@ -65,6 +80,18 @@ public class VirtualPet {
 	public int getEnergy() {
 		return energy;
 	}
+	
+	public int getHealth() {
+		return health;
+	}
+	
+	public int getHappiness() {
+		return happiness;
+	}
+	
+	public int getWaste() {
+		return waste;
+	}
 
 	// setters
 
@@ -90,6 +117,18 @@ public class VirtualPet {
 
 	public void setEnergy(int energy) {
 		this.energy = energy;
+	}
+	
+	public void setHealth(int health) {
+		this.health = health;
+	}
+	
+	public void setHappiness(int happiness) {
+		this.happiness = happiness;
+	}
+	
+	public void setWaste(int waste) {
+		this.waste = waste;
 	}
 
 	// methods
