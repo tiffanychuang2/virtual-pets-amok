@@ -1,3 +1,4 @@
+package pets;
 
 public class OrganicCat extends VirtualPet implements Organic {
 

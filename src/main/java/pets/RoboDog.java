@@ -1,3 +1,4 @@
+package pets;
 
 public class RoboDog extends AllDog implements Robot {
 

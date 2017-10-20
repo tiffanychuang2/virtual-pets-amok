@@ -1,3 +1,4 @@
+package pets;
 
 public class RoboCat extends VirtualPet implements Robot {
 

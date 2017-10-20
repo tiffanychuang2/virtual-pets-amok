@@ -1,3 +1,4 @@
+package pets;
 import java.util.Scanner;
 
 //app
@@ -28,7 +29,7 @@ public class VirtualPetShelterApp {
 		do {
 //			orgDogOptions();
 			choice = input.nextLine().toLowerCase();
-			myDog.dogsTick();
+			myDog.petsTick();
 
 			if (choice.equals("exit")) {
 				System.out.println("Final Health:\n");
@@ -38,7 +39,7 @@ public class VirtualPetShelterApp {
 
 			} else if (choice.equals("1")) { // feed all the dogs
 
-				myDog.feedDogs();
+				myDog.feedPets();
 
 				System.out.println("Noms for all!");
 				System.out.println("");
@@ -47,7 +48,7 @@ public class VirtualPetShelterApp {
 
 			} else if (choice.equals("2")) { // hydrate all the dogs
 
-				myDog.hydrateDogs();
+				myDog.hydratePets();
 
 				System.out.println("Drools profusely.");
 				System.out.println("");
@@ -56,7 +57,7 @@ public class VirtualPetShelterApp {
 
 			} else if (choice.equals("3")) { // play with a dog
 				System.out.println("You have selected to play with a pup!  Which pup would you like to play with?");
-				for (VirtualPet currentDogs : myDog.dogValues()) {
+				for (VirtualPet currentDogs : myDog.petValues()) {
 					System.out.println("[" + currentDogs.getName().substring(0, 1).toUpperCase()
 							+ currentDogs.getName().substring(1).toLowerCase() + "]" + " "
 							+ currentDogs.getDescription());
@@ -77,7 +78,7 @@ public class VirtualPetShelterApp {
 				currentPups();
 				String name = input.nextLine().toLowerCase();
 
-				myDog.adoptDog(name);
+				myDog.adoptPet(name);
 				System.out.println("\nYou've adopted " + name.substring(0, 1).toUpperCase()
 						+ name.substring(1).toLowerCase() + "!\n");
 				System.out.println(name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase()
@@ -91,7 +92,7 @@ public class VirtualPetShelterApp {
 
 				System.out.println("Can you tell us a little bit about " + name.substring(0, 1).toUpperCase()
 						+ name.substring(1).toLowerCase() + "?");
-				String description = input.nextLine();
+//				String description = input.nextLine();
 
 //				VirtualPet dog5 = new VirtualPet(name, description);
 
@@ -190,7 +191,7 @@ public class VirtualPetShelterApp {
 	public static void currentHealth() {
 		System.out.println("Name\t|Happy\t|Hunger\t|Thirst\t|Oil\t|Weight\t|Energy\t|Waste\t|Overall Health"
 				+ "\n--------|-------|-------|-------|-------|-------|-------|-------|--------------");
-		for (VirtualPet current : myDog.dogValues()) {
+		for (VirtualPet current : myDog.petValues()) {
 			System.out.println(current.getName().substring(0, 1).toUpperCase()
 					+ current.getName().substring(1).toLowerCase() + "\t|" + current.getHunger() + "\t|"
 					+ current.getThirst() + "\t|" + current.getWeight() + "\t|" + current.getEnergy());
@@ -199,7 +200,7 @@ public class VirtualPetShelterApp {
 
 	public static void currentPups() {
 		System.out.println("Our current pups are:\n");
-		for (VirtualPet current : myDog.dogValues()) {
+		for (VirtualPet current : myDog.petValues()) {
 			System.out.println("[" + current.getName().substring(0, 1).toUpperCase()
 					+ current.getName().substring(1).toLowerCase() + "] " + current.getDescription());
 		}

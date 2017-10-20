@@ -1,3 +1,4 @@
+package pets;
 
 public class OrganicDog extends AllDog implements Organic {
 	

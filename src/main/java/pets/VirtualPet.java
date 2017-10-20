@@ -1,3 +1,4 @@
+package pets;
 //model class
 public abstract class VirtualPet {
 
