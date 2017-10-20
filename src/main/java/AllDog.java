@@ -1,5 +1,5 @@
 
-public class AllDog extends VirtualPet {
+public abstract class AllDog extends VirtualPet {
 	
 	private int walk;
 	

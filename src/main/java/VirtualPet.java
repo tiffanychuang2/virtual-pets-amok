@@ -1,5 +1,5 @@
 //model class
-public class VirtualPet {
+public abstract class VirtualPet {
 
 	// instance variables
 	protected int hunger;
