@@ -2,13 +2,20 @@ package pets;
 
 public class RoboCat extends VirtualPet implements Robot {
 
-	protected int catOil;
+	//instance variables
+	protected int oilLevel;
 	
-	public RoboCat(String name, String description, int catOil) {
+	//constructors
+	public RoboCat(String name, String description, int oilLevel) {
 		super(name, description);
-		this.catOil = catOil;
+		this.oilLevel = oilLevel;
 	}
 
+	//getters
+	public int getOilLevel() {
+		return oilLevel;
+	} 
+	
 	@Override
 	public void addOil() {
 	}

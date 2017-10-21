@@ -52,4 +52,16 @@ public class VirtualPetShelter {
 
 	}
 
+	//litter box
+	public void litterBox() {
+		for (VirtualPet currentPets : pets.values()) {
+//			currentPets.waste();
+		}
+	}
+	
+	//clean crates
+	public void cleanCrates() {
+		
+	}
+	
 }// final curly brace

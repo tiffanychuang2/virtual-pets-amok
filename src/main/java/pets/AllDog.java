@@ -1,28 +1,32 @@
 package pets;
 
 public abstract class AllDog extends VirtualPet {
-	
-	//instance variables
-	protected int walk;
-	
-	//constructors
-	public AllDog (String name, String description, int hunger, int thirst, int weight, int energy, int health, int happiness, int waste, int walk) {
-		super(name, description, hunger, thirst, weight, energy, health, happiness, waste);
-		this.walk = walk;
-	}
-	
-	public AllDog (String name, String description) {
-		super(name, description);
+
+	// instance variables
+	protected int boredom;
+
+	// constructors
+	// robodog
+	public AllDog(String name, String description, int energy, int health, int happiness, int boredom) {
+		super(name, description, energy, health, happiness);
+		this.boredom = boredom;
 	}
 
-	//getters
-	public int getWalk() {
-		return walk;
+	// orgdog
+	public AllDog(String name, String description, int energy, int health, int happiness, int hunger, int thirst,
+			int boredom) {
+		super(name, description, energy, health, happiness, hunger, thirst);
+		this.boredom = boredom;
 	}
-	
-	//setters
-//	public void setWalk() {
-//		this.walk = walk;
-//	}
+
+	// getters
+	public int getBoredom() {
+		return boredom;
+	}
+
+	// setters
+	public void setBoredom() {
+		this.boredom = boredom;
+	}
 
 }
