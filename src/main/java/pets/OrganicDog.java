@@ -20,9 +20,15 @@ public class OrganicDog extends AllDog implements Organic {
 
 	}
 
+	@Override
 	public void hydrate() {
 
 	}
+
+	// @Override
+	// public void walk() {
+	//
+	// }
 
 	//// public static void orgDogOptions() {
 	//// System.out.println("Select 1 to feed all the dogs."

@@ -29,4 +29,9 @@ public abstract class AllDog extends VirtualPet {
 		this.boredom = boredom;
 	}
 
+	// methods
+	public void walk() {
+
+	}
+
 }

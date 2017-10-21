@@ -18,6 +18,11 @@ public class RoboDog extends AllDog implements Robot {
 	public void addOil() {
 	}
 
+	// @Override
+	// public void walk() {
+	//
+	// }
+
 	//// public static void roboDogOptions() {
 	//// System.out.println("Select 1 to oil all the robodogs."
 	//// + "\nSelect 2 to play with a robodog."

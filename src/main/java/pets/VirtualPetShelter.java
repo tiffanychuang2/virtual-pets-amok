@@ -1,4 +1,5 @@
 package pets;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,16 +53,18 @@ public class VirtualPetShelter {
 
 	}
 
-	//litter box
+	// clean litter box
 	public void litterBox() {
 		for (VirtualPet currentPets : pets.values()) {
-//			currentPets.waste();
+			// currentPets.litterWaste();
 		}
 	}
-	
-	//clean crates
+
+	// clean crates
 	public void cleanCrates() {
-		
+
 	}
-	
+
+	// walk dogs
+
 }// final curly brace
