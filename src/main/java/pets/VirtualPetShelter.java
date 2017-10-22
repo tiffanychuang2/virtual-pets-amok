@@ -7,6 +7,7 @@ import java.util.Map;
 //maintenance class
 public class VirtualPetShelter {
 
+	// Map to house pets
 	private Map<String, VirtualPet> pets = new HashMap<String, VirtualPet>();
 
 	// name = key, VirtualPet = value
@@ -66,5 +67,10 @@ public class VirtualPetShelter {
 	}
 
 	// walk dogs
+
+	@Override
+	public String toString() {
+		return super.toString();
+	}
 
 }// final curly brace

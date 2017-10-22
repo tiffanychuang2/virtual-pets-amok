@@ -115,23 +115,19 @@ public class VirtualPetShelterApp {
 		input.close();
 
 	}// close main method
-
-	public static void orgOrRobo() {
-		System.out
-				.println("Would you like to see an organic, or robot pet today?" + "\nSelect 1 to see our organic pets."
-						+ "\nSelect 2 to see our robotic pets." + "\nType \"exit\" to exit");
-	}// closes orgOrRobo
-
-	public static void catOrDog() {
-		System.out.println("Would you like to see the cats or the dogs?" + "\nSelect 1 to see our cats."
-				+ "\nSelect 2 to see our dogs." + "\nType \"exit\" to exit");
-	}// closes catOrDog
-
+	
 	public static void options() {
-		System.out.println("Select 1 to feed all the pets." + "\nSelect 2 to give water to all the pets."
-				+ "\nSelect 3 to play with a pet." + "\nSelect 4 to walk all the dogs." + "\nSelect 5 for housekeeping."
-				+ "\nSelect 6 to adopt a pet from the shelter." + "\nSelect 7 to admit a pet to the shelter."
-				+ "\nSelect 8 to view overall health." + "\nType \"exit\" to exit.");
+		System.out.println("Select 1 to feed all the pets."
+				+ "\nSelect 2 to give water to all the pets."
+				+ "\nSelect 3 to play with a pet."
+				+ "\nSelect 4 to walk all the dogs."
+				+ "\nSelect 5 to clean all crates."
+				+ "\nSelect 6 to clean the shelter litter box."
+				+ "\nSelect 7 for housekeeping."
+				+ "\nSelect 8 to adopt a pet from the shelter."
+				+ "\nSelect 9 to admit a pet to the shelter."
+				+ "\nSelect 10 to view overall health."
+				+ "\nType \"exit\" to exit.");
 	}// closes options
 
 	// public static void currentHealth() {

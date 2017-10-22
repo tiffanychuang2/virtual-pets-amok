@@ -5,6 +5,7 @@ TC TO DO:
 - set limits
 - set cause/effect (when ____ reaches ____, ________
 - testing
+- overall health/happiness
 
 
 

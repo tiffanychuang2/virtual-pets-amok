@@ -108,6 +108,8 @@ public abstract class VirtualPet {
 		hunger += 1; // gets hungrier every loop
 		thirst += 1; // gets more thirsty every loop
 		energy -= 1; // loses energy every loop
+		crateWaste += 1;
+		litterWaste += 1;
 	}
 
 	// hunger

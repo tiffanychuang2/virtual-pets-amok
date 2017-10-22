@@ -17,27 +17,27 @@ public class OrganicDog extends AllDog implements Organic {
 
 	@Override
 	public void play() {
-
+		energy -= 2;
 	}
 
 	@Override
 	public void walk() {
-
+		boredom -= 2;
 	}
 
 	@Override
 	public void feed() {
-
+		hunger -= 2;
 	}
 
 	@Override
 	public void hydrate() {
-
+		thirst -= 2;
 	}
 
 	@Override
 	public void cleanCrate() {
-
+		crateWaste *= 0;
 	}
 
 }
