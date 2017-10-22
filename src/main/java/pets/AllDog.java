@@ -30,8 +30,13 @@ public abstract class AllDog extends VirtualPet {
 	}
 
 	// methods
-	public void walk() {
+	@Override
+	public void play() {
+		energy -= 2;
+	}
 
+	public void walk() {
+		boredom -= 2;
 	}
 
 }

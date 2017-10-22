@@ -11,6 +11,8 @@ public abstract class VirtualPet {
 	protected int energy;
 	protected int health;
 	protected int happiness;
+	protected int litterWaste;
+	protected int crateWaste;
 
 	// constructors
 	// name, description
@@ -126,5 +128,20 @@ public abstract class VirtualPet {
 		thirst += 2;
 		energy -= 5;
 	}
+
+	public void cleanCrate() {
+		Math.min(0, crateWaste);
+		Math.max(crateWaste, 10);
+	}
+
+	public void litterBox() {
+		Math.min(0, litterWaste);
+		Math.max(litterWaste, 10);
+	}
+
+	@Override
+	public String toString() {
+		return name + "\t" + description;
+	}// close toString
 
 }

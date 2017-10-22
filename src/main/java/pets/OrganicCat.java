@@ -18,24 +18,23 @@ public class OrganicCat extends VirtualPet implements Organic {
 
 	// methods
 	@Override
-	public void feed() {
+	public void play() {
+		energy -= 3;
+	}
 
+	@Override
+	public void feed() {
+		hunger -= 2;
 	}
 
 	@Override
 	public void hydrate() {
-
+		thirst -= 2;
 	}
 
-	//// public static void orgCatOptions() {
-	//// System.out.println("Select 1 to feed all the cats."
-	//// + "\nSelect 2 to give water to all the cats."
-	//// + "\nSelect 3 to play with a cat."
-	//// + "\nSelect 4 to empty the litter box."
-	//// + "\nSelect 5 to adopt a cat from the shelter."
-	//// + "\nSelect 6 to admit a cat to the shelter."
-	//// + "\nSelect 7 to view overall health."
-	//// + "\nType \"exit\" to exit.");
-	//// }// closes orgCatOptions
-	//
+	@Override
+	public void litterBox() {
+		litterWaste *= 0;
+	}
+
 }

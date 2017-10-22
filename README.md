@@ -1,3 +1,18 @@
+TC TO DO:
+
+- to strings
+- overrides
+- set limits
+- set cause/effect (when ____ reaches ____, ________
+- testing
+
+
+
+
+
+
+
+
 introduce ways to track:
 - cage cleanliness for organic dogs
 - shelter litter box cleanliness for organic cats

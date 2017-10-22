@@ -2,31 +2,28 @@ package pets;
 
 public class RoboCat extends VirtualPet implements Robot {
 
-	//instance variables
+	// instance variables
 	protected int oilLevel;
-	
-	//constructors
-	public RoboCat(String name, String description, int oilLevel) {
-		super(name, description);
+
+	// constructors
+	public RoboCat(String name, String description, int energy, int health, int happiness, int oilLevel) {
+		super(name, description, energy, health, happiness);
 		this.oilLevel = oilLevel;
 	}
 
-	//getters
+	// getters
 	public int getOilLevel() {
 		return oilLevel;
-	} 
-	
+	}
+
+	@Override
+	public void play() {
+		energy -= 3;
+	}
+
 	@Override
 	public void addOil() {
+		oilLevel *= 0;
 	}
-	
-//	public static void roboCatOptions() {
-//		System.out.println("Select 1 to oil all the robocats."
-//				+ "\nSelect 2 to play with a robocat."
-//				+ "\nSelect 3 to adopt a robocat from the shelter."
-//				+ "\nSelect 4 to admit a robocat to the shelter."
-//				+ "\nSelect 5 to view overall health."
-//				+ "\nType \"exit\" to exit.");
-//	}// closes roboCatOptions
 
 }
