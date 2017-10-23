@@ -6,8 +6,8 @@ public abstract class AllDog extends VirtualPet {
 	protected int boredom;
 
 	// constructors
-	public AllDog(String name, String description, int energy, int health, int happiness, int boredom) {
-		super(name, description, energy, health, happiness);
+	public AllDog(String name, String description, int health, int happiness, int boredom) {
+		super(name, description, health, happiness);
 		this.boredom = boredom;
 	}
 
@@ -23,28 +23,6 @@ public abstract class AllDog extends VirtualPet {
 
 	// methods
 
-	@Override
-	public void tick() {
-		Math.min(0, boredom);
-		Math.max(boredom, 10);
-		boredom += 1;
-		super.tick();
-	}
-
-	@Override
-	public void play() {
-		Math.min(0, boredom);
-		Math.max(boredom, 10);
-		boredom -= 2;
-		super.play();
-	}
-
-	public void walk() {
-		Math.min(0, boredom);
-		Math.max(boredom, 10);
-		boredom -= 2;
-		health += 2;
-		happiness += 4;
-	}
+	abstract void walk();
 
 }

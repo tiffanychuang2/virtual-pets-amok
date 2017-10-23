@@ -11,17 +11,17 @@ public class VirtualPetShelterApp {
 
 	public static void main(String[] args) {
 
-		OrganicDog charlie = new OrganicDog("charlie", "organic dog, smart, playful, majestic, loving", 6, 8, 7, 6, 6,
+		OrganicDog charlie = new OrganicDog("charlie", "organic dog, smart, playful, majestic, loving", 6, 8, 7, 6, 5,
 				7, 0);
 		OrganicDog angus = new OrganicDog("angus", "organic dog, derpy, hyper, loving, loyal, destructive", 9, 9, 9, 8,
-				7, 6, 1);
-		RoboDog scooby = new RoboDog("scooby", "robodog, sassy, sneaky, sarcastic, mischievous", 8, 9, 9, 2, 6);
-		RoboDog snoopy = new RoboDog("scooby", "robodog, hungry, skittish, playful, happy", 7, 9, 6, 8, 9);
-		OrganicCat smellyCat = new OrganicCat("smelly", "organic feline, smelly, musical", 2, 10, 2, 5, 5, 1);
+				9, 6, 1);
+		RoboDog scooby = new RoboDog("scooby", "robodog, sassy, sneaky, sarcastic, mischievous", 8, 9, 9, 6);
+		RoboDog snoopy = new RoboDog("scooby", "robodog, hungry, skittish, playful, happy", 7, 9, 6, 9);
+		OrganicCat smellyCat = new OrganicCat("smelly", "organic feline, smelly, musical", 2, 10, 2, 5, 1);
 		OrganicCat mrsNorris = new OrganicCat("norris", "organic feline, fluffy, sneaky, guard cat, tattle tale", 6, 9,
-				7, 5, 5, 1);
-		RoboCat grumpyCat = new RoboCat("grumpy", "robocat, grumps, fluffy, silly", 2, 8, 2, 2);
-		RoboCat tom = new RoboCat("tom", "robocat, obsessive, chases Jerry, not good at catching mice", 8, 8, 10, 10);
+				7, 5, 1);
+		RoboCat grumpyCat = new RoboCat("grumpy", "robocat, grumps, fluffy, silly", 2, 8, 2);
+		RoboCat tom = new RoboCat("tom", "robocat, obsessive, chases Jerry, not good at catching mice", 8, 8, 10);
 
 		myPet.addPet(charlie);
 		myPet.addPet(angus);
@@ -50,23 +50,18 @@ public class VirtualPetShelterApp {
 				System.exit(0);
 
 			} else if (choice.equals("1")) { // feed organic pets
-				for (VirtualPet currentPets : myPet.petValues()) {
-					if (currentPets instanceof Organic) {
-						((Organic) myPet).feed();
-						System.out.println(currentPets.getName() + ": Thank you for feeding me!");
-					}
-				}
+				myPet.feedAllOrganic();
+				System.out.println("Noms for organic pets!");
 
 				currentHealth();
-
 			} else if (choice.equals("2")) { // hydrate organic pets
-
-				// myDog.hydratePets();
+				myPet.hydrateAllOrganic();
+				System.out.println("Thank you, we were very thirsty!");
 
 				System.out.println("Drools profusely.");
 				System.out.println("");
 
-				// currentHealth();
+				currentHealth();
 
 			} else if (choice.equals("3")) { // play with a pet
 				System.out.println("You have selected to play with a pet!  Which pet would you like to play with?");
@@ -87,13 +82,14 @@ public class VirtualPetShelterApp {
 				currentHealth();
 
 			} else if (choice.equals("4")) { // walk dogs
+				myPet.walkAllDogs();
+				System.out.println("Thank you for walking the dogs!");
 
 			} else if (choice.equals("5")) { // clean org dog crates
 
 				// Select 6 to clean the shelter litter box.
-				// Select 7 for housekeeping.
 
-				// Select 8 to adopt a pet from the shelter.
+				// Select 7 to adopt a pet from the shelter.
 			} else if (choice.equals("8")) {
 				System.out.println("Which pup would you like to adopt?\n");
 				// currentPups();
@@ -107,7 +103,7 @@ public class VirtualPetShelterApp {
 				System.out.println("Remaining pups in the shelter:\n");
 				currentPups();
 
-				// Select 9 to admit a pet to the shelter.
+				// Select 8 to admit a pet to the shelter.
 			} else if (choice.equals("9")) {
 				System.out.println("We're happy to shelter your pup.  What is your pup's name?");
 				String name = input.nextLine().toLowerCase();
@@ -132,7 +128,6 @@ public class VirtualPetShelterApp {
 			} // closes final "else"
 
 			System.out.println("\nWhat would you like to do next?\n");
-
 		} // closes "do"
 
 		while (!choice.equals("exit"));
@@ -145,22 +140,53 @@ public class VirtualPetShelterApp {
 	}// close main method
 
 	public static void options() {
-		System.out.println("Select 1 to feed all the organic pets."
-				+ "\nSelect 2 to give water to all the organic pets." + "\nSelect 3 to play with a single pet."
-				+ "\nSelect 4 to walk all the dogs." + "\nSelect 5 to clean all organic dog crates."
-				+ "\nSelect 6 to clean the shelter litter box." + "\nSelect 7 for housekeeping."
-				+ "\nSelect 8 to adopt a pet from the shelter." + "\nSelect 9 to admit a pet to the shelter."
-				+ "\nSelect 10 to view overall health." + "\nType \"exit\" to exit.");
+		System.out.println("Select 1 to feed all organic pets." + "\nSelect 2 to give water to all organic pets."
+				+ "\nSelect 3 to play with a single pet." + "\nSelect 4 to walk all the dogs."
+				+ "\nSelect 5 to clean all organic dog crates." + "\nSelect 6 to clean the shelter litter box."
+				+ "\nSelect 7 to adopt a pet from the shelter." + "\nSelect 8 to admit a pet to the shelter."
+				+ "\nType \"exit\" to exit.");
 	}// closes options
 
 	public static void currentHealth() {
-		System.out.println("Name\t|Energy\t|Health\t|Happiness" + "\n--------|-------|-------|----------");
+		System.out.println("Name\t|Health\t|Joy" + "\n--------|-------|-------");
 		for (VirtualPet currentPets : myPet.petValues()) {
 			System.out.println(currentPets.getName().substring(0, 1).toUpperCase()
-					+ currentPets.getName().substring(1).toLowerCase() + "\t" + "|" + currentPets.getEnergy() + "\t" + "|"
-					+ currentPets.getHealth() + "\t" + "|" + currentPets.getHappiness());
+					+ currentPets.getName().substring(1).toLowerCase() + "\t" + "|" + currentPets.getHealth() + "\t"
+					+ "|" + currentPets.getHappiness());
 		}
+
+		// add cages//add litterbox
 	}// closes currentHealth
+
+	public static void orgDogHealth() {
+		System.out.println("Name\t|Health\t|Joy\t|Hunger\t|Thirst\t|Energy\t|Boredom"
+				+ "\n--------|-------|-------|-------|-------|-------|-------");
+		for (VirtualPet currentPets : myPet.petValues()) {
+			System.out.println();
+		}
+	}
+
+	public static void roboDogHealth() {
+		System.out.println("Name\t|Health\t|Joy\t|Boredom\t|Oil Level" + "\n--------|-------|-------|-------|-------");
+		for (VirtualPet currentPets : myPet.petValues()) {
+
+		}
+	}
+
+	public static void orgCatHealth() {
+		System.out.println(
+				"Name\t|Health\t|Joy\tHunger\tThirst\tEnergy" + "\n--------|-------|-------|-------|-------|-------");
+		for (VirtualPet currentPets : myPet.petValues()) {
+
+		}
+	}
+
+	public static void roboCatHealth() {
+		System.out.println("Name\t|Health\t|Joy\t|Oil Level" + "\n--------|-------|-------|-------");
+		for (VirtualPet currentPets : myPet.petValues()) {
+
+		}
+	}
 
 	public static void currentPups() {
 		System.out.println("Our current pups are:\n");

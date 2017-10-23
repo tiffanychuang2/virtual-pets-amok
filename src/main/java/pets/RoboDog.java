@@ -4,8 +4,8 @@ public class RoboDog extends AllDog implements Robot {
 
 	protected int oilLevel;
 
-	public RoboDog(String name, String description, int energy, int health, int happiness, int boredom, int oilLevel) {
-		super(name, description, energy, health, happiness, boredom);
+	public RoboDog(String name, String description, int health, int happiness, int boredom, int oilLevel) {
+		super(name, description, health, happiness, boredom);
 		this.oilLevel = oilLevel;
 	}
 

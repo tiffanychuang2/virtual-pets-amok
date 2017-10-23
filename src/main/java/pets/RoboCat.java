@@ -6,8 +6,8 @@ public class RoboCat extends VirtualPet implements Robot {
 	protected int oilLevel;
 
 	// constructors
-	public RoboCat(String name, String description, int energy, int health, int happiness, int oilLevel) {
-		super(name, description, energy, health, happiness);
+	public RoboCat(String name, String description, int health, int happiness, int oilLevel) {
+		super(name, description, health, happiness);
 		this.oilLevel = oilLevel;
 	}
 
@@ -16,6 +16,7 @@ public class RoboCat extends VirtualPet implements Robot {
 		return oilLevel;
 	}
 
+	// methods
 	@Override
 	public void tick() {
 		Math.min(0, oilLevel);

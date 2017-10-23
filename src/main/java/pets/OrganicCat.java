@@ -4,15 +4,20 @@ public class OrganicCat extends VirtualPet implements Organic {
 
 	protected int hunger;
 	protected int thirst;
+	protected int energy;
 	protected int litterWaste;
 
 	// constructors
-	public OrganicCat(String name, String description, int energy, int health, int happiness, int hunger, int thirst,
-			int litterWaste) {
-		super(name, description, energy, health, happiness);
+	public OrganicCat(String name, String description, int health, int happiness, int hunger, int thirst, int energy) {
+		super(name, description, health, happiness);
 		this.hunger = hunger;
 		this.thirst = thirst;
-		this.litterWaste = litterWaste;
+		this.energy = energy;
+		// this.litterWaste = litterWaste;
+	}
+
+	public OrganicCat(String name, String description) {
+		super(name, description);
 	}
 
 	// getters
@@ -22,6 +27,10 @@ public class OrganicCat extends VirtualPet implements Organic {
 
 	public int getThirst() {
 		return thirst;
+	}
+
+	public int getEnergy() {
+		return energy;
 	}
 
 	public int getLitterWaste() {
@@ -46,6 +55,7 @@ public class OrganicCat extends VirtualPet implements Organic {
 	@Override
 	public void play() {
 		super.play();
+		energy -= 4;
 	}
 
 	@Override
@@ -64,13 +74,6 @@ public class OrganicCat extends VirtualPet implements Organic {
 		energy += 1;
 	}
 
-	// // feed all of the pets in the shelter
-	// public void feedPets() {
-	// for (VirtualPet currentPets : pets.values()) {
-	// currentPets.feed();
-	// }
-	// }
-
 	@Override
 	public void hydrate() {
 		Math.min(0, thirst);
@@ -87,7 +90,7 @@ public class OrganicCat extends VirtualPet implements Organic {
 		energy += 1;
 	}
 
-	public void collectWaste() {
+	public int collectWaste() {
 		Math.min(0, litterWaste);
 		Math.max(litterWaste, 20);
 		litterWaste += 2;
@@ -95,13 +98,28 @@ public class OrganicCat extends VirtualPet implements Organic {
 			health -= 2;
 			happiness -= 2;
 		}
+		return litterWaste;
 	}
 
+	// clean litter box
+	public int litterBox() {
+		litterWaste *= 0;
+		return litterWaste;
+	}
+
+	// // feed all of the pets in the shelter
+	// public void feedPets() {
+	// for (VirtualPet currentPets : pets.values()) {
+	// currentPets.feed();
+	// }
+	// }
+	//
 	// // water all of the pets in the shelter
 	// public void hydratePets() {
 	// for (VirtualPet currentPets : pets.values()) {
 	// currentPets.hydrate();
 	// }
+	//
 	// }
 
 }

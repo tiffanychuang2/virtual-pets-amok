@@ -7,6 +7,11 @@ import java.util.Map;
 //maintenance class
 public class VirtualPetShelter {
 
+	protected int litterBox;
+	protected int litterWaste;
+
+	OrganicCat orgCat = new OrganicCat("", "");
+
 	// Map to house pets
 	private Map<String, VirtualPet> pets = new HashMap<String, VirtualPet>();
 
@@ -32,35 +37,100 @@ public class VirtualPetShelter {
 		pets.put(pet.getName(), pet);
 	}
 
-	// tick
-	public void petsTick() {
+	// feed all organic pets
+	public void feedAllOrganic() {
 		for (VirtualPet currentPets : pets.values()) {
-			currentPets.tick();
+			if (pets instanceof Organic) {
+				((Organic) pets).feed();
+			}
+		}
+	}
+	//
+	// // feed all of the organic cats
+	// public void feedCats() {
+	// for (VirtualPet currentPets : pets.values()) {
+	// if (pets instanceof OrganicCat) {
+	// ((OrganicCat) pets).feed();
+	// }
+	// }
+	// }
+	//
+	// // feed all organic dogs
+	// public void feedDogs() {
+	// for (VirtualPet currentPets : pets.values()) {
+	// if (pets instanceof OrganicDog) {
+	// ((OrganicDog) pets).feed();
+	// }
+	// }
+	// }
+
+	// hydrate all organic pets
+	public void hydrateAllOrganic() {
+		for (VirtualPet currentPets : pets.values()) {
+			if (pets instanceof Organic) {
+				((Organic) pets).hydrate();
+			}
+		}
+	}
+	//
+	// // hydrate all of the organic cats
+	// public void hydrateCats() {
+	// for (VirtualPet currentPets : pets.values()) {
+	// if (pets instanceof OrganicCat) {
+	// ((OrganicCat) pets).hydrate();
+	// }
+	// }
+	// }
+	//
+	// // hydrate all organic dogs
+	// public void hydrateDogs() {
+	// for (VirtualPet currentPets : pets.values()) {
+	// if (pets instanceof OrganicDog) {
+	// ((OrganicDog) pets).hydrate();
+	// }
+	// }
+	// }
+
+	// oil all robopets
+	public void oilAllRobots() {
+		for (VirtualPet currentPets : pets.values()) {
+			if (pets instanceof Robot) {
+				((Robot) pets).addOil();
+			}
 		}
 	}
 
-	// // feed all of the pets in the shelter
-	// public void feedPets() {
-	// for (VirtualPet currentPets : pets.values()) {
-	// currentPets.feed();
-	// }
-	// }
-	//
-	// // water all of the pets in the shelter
-	// public void hydratePets() {
-	// for (VirtualPet currentPets : pets.values()) {
-	// currentPets.hydrate();
-	// }
-	//
-	// }
+	// walk all dogs
+	public void walkAllDogs() {
+		for (VirtualPet currentPets : pets.values()) {
+			if (pets instanceof AllDog) {
+				((AllDog) pets).walk();
+			}
+		}
+	}
 
-	// clean litter box
-	// public void litterBox() {
-	// Math.min(0, litterWaste);
-	// Math.max(litterWaste, 10);
-	// for (VirtualPet currentPets : pets.values()) {
-	// // currentPets.litterWaste();
-	// }
+	// clean all crates
+	public void cleanAllCrates() {
+		for (VirtualPet currentPets : pets.values()) {
+			if (pets instanceof OrganicDog) {
+				((OrganicDog) pets).cleanCrate();
+			}
+		}
+	}
+
+	// tick
+	public void petsTick() {
+		for (VirtualPet currentPets : pets.values()) {
+			if (pets instanceof OrganicCat) {
+				litterWaste = orgCat.collectWaste();
+				litterBox = litterBox + litterWaste;
+			}
+			if (pets instanceof OrganicCat) {
+				litterWaste = orgCat.litterBox();
+			}
+			currentPets.tick();
+		}
+	}
 
 	// walk dogs
 

@@ -4,14 +4,18 @@ public class OrganicDog extends AllDog implements Organic {
 
 	protected int hunger;
 	protected int thirst;
+	protected int energy;
 	protected int crateWaste;
+	// energy
 
-	public OrganicDog(String name, String description, int energy, int health, int happiness, int hunger, int thirst,
+	public OrganicDog(String name, String description, int health, int happiness, int hunger, int thirst, int energy,
 			int boredom, int crateWaste) {
-		super(name, description, energy, health, happiness, boredom);
+		super(name, description, health, happiness, boredom);
 		this.hunger = hunger;
 		this.thirst = thirst;
+		this.energy = energy;
 		this.crateWaste = crateWaste;
+		// energy
 	}
 
 	// getters
@@ -27,8 +31,11 @@ public class OrganicDog extends AllDog implements Organic {
 		return thirst;
 	}
 
-	// methods
+	public int getEnergy() {
+		return energy;
+	}
 
+	// methods
 	@Override
 	public void tick() {
 		Math.min(0, hunger);
@@ -47,6 +54,7 @@ public class OrganicDog extends AllDog implements Organic {
 	public void play() {
 		Math.min(0, crateWaste);
 		Math.max(crateWaste, 10);
+		energy -= 2;
 		super.play();
 		crateWaste *= 0;
 	}
@@ -87,7 +95,6 @@ public class OrganicDog extends AllDog implements Organic {
 	public void walk() {
 		Math.min(0, crateWaste);
 		Math.max(crateWaste, 10);
-		super.walk();
 		crateWaste *= 0;
 	}
 
