@@ -6,8 +6,6 @@ public abstract class VirtualPet {
 	// instance variables
 	protected String name;
 	protected String description;
-	protected int hunger;
-	protected int thirst;
 	protected int energy;
 	protected int health;
 	protected int happiness;
@@ -28,18 +26,6 @@ public abstract class VirtualPet {
 		this.energy = energy;
 		this.health = health;
 		this.happiness = happiness;
-	}
-
-	// org
-	public VirtualPet(String name, String description, int energy, int health, int happiness, int hunger, int thirst) {
-		this.name = name;
-		this.description = description;
-		this.energy = energy;
-		this.health = health;
-		this.happiness = happiness;
-		this.hunger = hunger;
-		this.thirst = thirst;
-
 	}
 
 	// getters
@@ -64,14 +50,6 @@ public abstract class VirtualPet {
 		return happiness;
 	}
 
-	public int getHunger() {
-		return hunger;
-	}
-
-	public int getThirst() {
-		return thirst;
-	}
-
 	// setters
 
 	public void setName(String name) {
@@ -94,51 +72,41 @@ public abstract class VirtualPet {
 		this.happiness = happiness;
 	}
 
-	public void setHunger(int hunger) {
-		this.hunger = hunger;
-	}
-
-	public void setThirst(int thirst) {
-		this.thirst = thirst;
-	}
-
 	// methods
 
 	public void tick() {
-		hunger += 1; // gets hungrier every loop
-		thirst += 1; // gets more thirsty every loop
+		Math.min(0, energy);
+		Math.max(energy, 10);
+		Math.min(0, health);
+		Math.max(health, 10);
+		Math.min(0, happiness);
+		Math.max(happiness, 10);
 		energy -= 1; // loses energy every loop
-		crateWaste += 1;
-		litterWaste += 1;
-	}
-
-	// hunger
-	public void feed() {
-		hunger -= 4; // less hungry
-		energy += 1; // gain energy
-	}
-
-	// thirst
-	public void hydrate() {
-		thirst -= 4;
-		energy += 2;
+		health -= 2;
+		happiness -= 1;
+		if (health <= 8) {
+			happiness -= 2;
+		} else {
+			happiness += 1;
+		}
 	}
 
 	// energy
 	public void play() {
-		hunger += 2;
-		thirst += 2;
+		Math.min(0, energy);
+		Math.max(energy, 10);
+		Math.min(0, health);
+		Math.max(health, 10);
+		Math.min(0, happiness);
+		Math.max(happiness, 10);
 		energy -= 5;
-	}
-
-	public void cleanCrate() {
-		Math.min(0, crateWaste);
-		Math.max(crateWaste, 10);
-	}
-
-	public void litterBox() {
-		Math.min(0, litterWaste);
-		Math.max(litterWaste, 10);
+		health += 4;
+		happiness += 6;
+		if (energy >= 4) {
+			happiness -= 2;
+		} else {
+			happiness += 1;
+		}
 	}
 
 	@Override

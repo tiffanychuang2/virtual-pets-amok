@@ -17,12 +17,25 @@ public class RoboCat extends VirtualPet implements Robot {
 	}
 
 	@Override
+	public void tick() {
+		Math.min(0, oilLevel);
+		Math.max(oilLevel, 10);
+		oilLevel -= 1;
+		super.tick();
+	}
+
+	@Override
 	public void play() {
-		energy -= 3;
+		Math.min(0, oilLevel);
+		Math.max(oilLevel, 10);
+		oilLevel -= 2;
+		super.play();
 	}
 
 	@Override
 	public void addOil() {
+		Math.min(0, oilLevel);
+		Math.max(oilLevel, 10);
 		oilLevel *= 0;
 	}
 

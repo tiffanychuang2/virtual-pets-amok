@@ -6,16 +6,8 @@ public abstract class AllDog extends VirtualPet {
 	protected int boredom;
 
 	// constructors
-	// robodog
 	public AllDog(String name, String description, int energy, int health, int happiness, int boredom) {
 		super(name, description, energy, health, happiness);
-		this.boredom = boredom;
-	}
-
-	// orgdog
-	public AllDog(String name, String description, int energy, int health, int happiness, int hunger, int thirst,
-			int boredom) {
-		super(name, description, energy, health, happiness, hunger, thirst);
 		this.boredom = boredom;
 	}
 
@@ -25,18 +17,34 @@ public abstract class AllDog extends VirtualPet {
 	}
 
 	// setters
-	public void setBoredom() {
-		this.boredom = boredom;
-	}
+	// public void setBoredom() {
+	// this.boredom = boredom;
+	// }
 
 	// methods
+
+	@Override
+	public void tick() {
+		Math.min(0, boredom);
+		Math.max(boredom, 10);
+		boredom += 1;
+		super.tick();
+	}
+
 	@Override
 	public void play() {
-		energy -= 2;
+		Math.min(0, boredom);
+		Math.max(boredom, 10);
+		boredom -= 2;
+		super.play();
 	}
 
 	public void walk() {
+		Math.min(0, boredom);
+		Math.max(boredom, 10);
 		boredom -= 2;
+		health += 2;
+		happiness += 4;
 	}
 
 }

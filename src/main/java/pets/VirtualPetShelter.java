@@ -39,32 +39,28 @@ public class VirtualPetShelter {
 		}
 	}
 
-	// feed all of the pets in the shelter
-	public void feedPets() {
-		for (VirtualPet currentPets : pets.values()) {
-			currentPets.feed();
-		}
-	}
-
-	// water all of the pets in the shelter
-	public void hydratePets() {
-		for (VirtualPet currentPets : pets.values()) {
-			currentPets.hydrate();
-		}
-
-	}
+	// // feed all of the pets in the shelter
+	// public void feedPets() {
+	// for (VirtualPet currentPets : pets.values()) {
+	// currentPets.feed();
+	// }
+	// }
+	//
+	// // water all of the pets in the shelter
+	// public void hydratePets() {
+	// for (VirtualPet currentPets : pets.values()) {
+	// currentPets.hydrate();
+	// }
+	//
+	// }
 
 	// clean litter box
-	public void litterBox() {
-		for (VirtualPet currentPets : pets.values()) {
-			// currentPets.litterWaste();
-		}
-	}
-
-	// clean crates
-	public void cleanCrates() {
-
-	}
+	// public void litterBox() {
+	// Math.min(0, litterWaste);
+	// Math.max(litterWaste, 10);
+	// for (VirtualPet currentPets : pets.values()) {
+	// // currentPets.litterWaste();
+	// }
 
 	// walk dogs
 
