@@ -56,12 +56,8 @@ public class VirtualPetShelterApp {
 						System.out.println(currentPets.getName() + ": Thank you for feeding me!");
 					}
 				}
-				// myDog.feedPets();
 
-				System.out.println("Noms for all!");
-				System.out.println("");
-
-				// currentHealth();
+				currentHealth();
 
 			} else if (choice.equals("2")) { // hydrate organic pets
 
@@ -85,10 +81,10 @@ public class VirtualPetShelterApp {
 				myPet.getName(name).play();
 
 				System.out.println(name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase()
-						+ " is having so much fun! Zoomies time!  Derpy smile!");
+						+ " is having so much fun!");
 				System.out.println("");
 
-				// currentHealth();
+				currentHealth();
 
 			} else if (choice.equals("4")) { // walk dogs
 
@@ -159,18 +155,18 @@ public class VirtualPetShelterApp {
 
 	public static void currentHealth() {
 		System.out.println("Name\t|Energy\t|Health\t|Happiness" + "\n--------|-------|-------|----------");
-		for (VirtualPet current : myPet.petValues()) {
-			System.out.println(current.getName().substring(0, 1).toUpperCase()
-					+ current.getName().substring(1).toLowerCase() + "\t" + "|" + current.getEnergy() + "\t" + "|"
-					+ current.getHealth() + "\t" + "|" + current.getHappiness());
+		for (VirtualPet currentPets : myPet.petValues()) {
+			System.out.println(currentPets.getName().substring(0, 1).toUpperCase()
+					+ currentPets.getName().substring(1).toLowerCase() + "\t" + "|" + currentPets.getEnergy() + "\t" + "|"
+					+ currentPets.getHealth() + "\t" + "|" + currentPets.getHappiness());
 		}
 	}// closes currentHealth
 
 	public static void currentPups() {
 		System.out.println("Our current pups are:\n");
-		for (VirtualPet current : myPet.petValues()) {
-			System.out.println("[" + current.getName().substring(0, 1).toUpperCase()
-					+ current.getName().substring(1).toLowerCase() + "] " + current.getDescription());
+		for (VirtualPet currentPets : myPet.petValues()) {
+			System.out.println("[" + currentPets.getName().substring(0, 1).toUpperCase()
+					+ currentPets.getName().substring(1).toLowerCase() + "] " + currentPets.getDescription());
 		}
 	}// closes currentPups
 
