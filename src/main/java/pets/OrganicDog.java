@@ -18,6 +18,10 @@ public class OrganicDog extends AllDog implements Organic {
 		// energy
 	}
 
+	public OrganicDog(String name, String description) {
+		super(name, description);
+	}
+
 	// getters
 	public int getCrateWaste() {
 		return crateWaste;
@@ -124,5 +128,11 @@ public class OrganicDog extends AllDog implements Organic {
 	// for (VirtualPet currentPets : pets.values()) {
 	// currentPets.hydrate();
 	// }
+
+	@Override
+	public String toString() {
+		return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase() + "\t|" + health + "\t|" + happiness
+				+ "\t|" + hunger + "\t|" + thirst + "\t|" + energy + "\t|" + boredom;
+	}
 
 }

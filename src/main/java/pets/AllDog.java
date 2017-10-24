@@ -11,6 +11,10 @@ public abstract class AllDog extends VirtualPet {
 		this.boredom = boredom;
 	}
 
+	public AllDog(String name, String description) {
+		super(name, description);
+	}
+
 	// getters
 	public int getBoredom() {
 		return boredom;

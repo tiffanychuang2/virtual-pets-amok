@@ -10,7 +10,10 @@ public class VirtualPetShelter {
 	protected int litterBox;
 	protected int litterWaste;
 
+	OrganicDog orgDog = new OrganicDog("", "");
+	RoboDog roboDog = new RoboDog("", "");
 	OrganicCat orgCat = new OrganicCat("", "");
+	RoboCat roboCat = new RoboCat("", "");
 
 	// Map to house pets
 	private Map<String, VirtualPet> pets = new HashMap<String, VirtualPet>();
@@ -131,8 +134,6 @@ public class VirtualPetShelter {
 			currentPets.tick();
 		}
 	}
-
-	// walk dogs
 
 	@Override
 	public String toString() {

@@ -11,6 +11,10 @@ public class RoboCat extends VirtualPet implements Robot {
 		this.oilLevel = oilLevel;
 	}
 
+	public RoboCat(String name, String description) {
+		super(name, description);
+	}
+
 	// getters
 	public int getOilLevel() {
 		return oilLevel;
@@ -38,6 +42,12 @@ public class RoboCat extends VirtualPet implements Robot {
 		Math.min(0, oilLevel);
 		Math.max(oilLevel, 10);
 		oilLevel *= 0;
+	}
+
+	@Override
+	public String toString() {
+		return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase() + "\t|" + health + "\t|" + happiness
+				+ "\t|" + oilLevel;
 	}
 
 }

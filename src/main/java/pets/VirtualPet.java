@@ -88,7 +88,7 @@ public abstract class VirtualPet {
 
 	@Override
 	public String toString() {
-		return name + "\t" + description;
+		return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase() + "\t" + this.description;
 	}// close toString
 
 }

@@ -9,6 +9,10 @@ public class RoboDog extends AllDog implements Robot {
 		this.oilLevel = oilLevel;
 	}
 
+	public RoboDog(String name, String description) {
+		super(name, description);
+	}
+
 	// getters
 	public int getOilLevel() {
 		return oilLevel;
@@ -52,6 +56,12 @@ public class RoboDog extends AllDog implements Robot {
 		Math.min(0, oilLevel);
 		Math.max(oilLevel, 10);
 		oilLevel *= 0;
+	}
+
+	@Override
+	public String toString() {
+		return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase() + "\t|" + health + "\t|" + happiness
+				+ "\t|" + boredom + "\t|" + oilLevel;
 	}
 
 }
