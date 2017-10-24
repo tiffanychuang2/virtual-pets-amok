@@ -101,12 +101,6 @@ public class OrganicCat extends VirtualPet implements Organic {
 		return litterWaste;
 	}
 
-	// clean litter box
-	public int litterBox() {
-		litterWaste *= 0;
-		return litterWaste;
-	}
-
 	@Override
 	public String toString() {
 		return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase() + "\t|" + health + "\t|" + happiness

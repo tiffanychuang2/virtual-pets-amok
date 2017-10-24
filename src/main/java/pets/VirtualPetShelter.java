@@ -10,10 +10,10 @@ public class VirtualPetShelter {
 	protected int litterBox;
 	protected int litterWaste;
 
-	OrganicDog orgDog = new OrganicDog("", "");
-	RoboDog roboDog = new RoboDog("", "");
-	OrganicCat orgCat = new OrganicCat("", "");
-	RoboCat roboCat = new RoboCat("", "");
+	// OrganicDog orgDog = new OrganicDog("", "");
+	// RoboDog roboDog = new RoboDog("", "");
+	// OrganicCat orgCat = new OrganicCat("", "");
+	// RoboCat roboCat = new RoboCat("", "");
 
 	// Map to house pets
 	private Map<String, VirtualPet> pets = new HashMap<String, VirtualPet>();
@@ -40,67 +40,148 @@ public class VirtualPetShelter {
 		pets.put(pet.getName(), pet);
 	}
 
+	// clean litter box
+	public int litterBox() {
+		litterWaste *= 0;
+		return litterWaste;
+	}
+
 	// feed all organic pets
 	public void feedAllOrganic() {
-		for (VirtualPet currentPets : pets.values()) {
-			if (pets instanceof Organic) {
-				((Organic) pets).feed();
+		for (VirtualPet currentPet : pets.values()) {
+			if (currentPet instanceof Organic) {
+				((Organic) currentPet).feed();
 			}
 		}
 	}
 
 	// hydrate all organic pets
 	public void hydrateAllOrganic() {
-		for (VirtualPet currentPets : pets.values()) {
-			if (pets instanceof Organic) {
-				((Organic) pets).hydrate();
+		for (VirtualPet currentPet : pets.values()) {
+			if (currentPet instanceof Organic) {
+				((Organic) currentPet).hydrate();
 			}
 		}
 	}
 
 	// oil all robopets
 	public void oilAllRobots() {
-		for (VirtualPet currentPets : pets.values()) {
-			if (pets instanceof Robot) {
-				((Robot) pets).addOil();
-				roboCat.oilLevel = 10;
-				roboDog.oilLevel = 10;
+		for (VirtualPet currentPet : pets.values()) {
+			if (currentPet instanceof Robot) {
+				((Robot) currentPet).addOil();
 			}
 		}
 	}
 
 	// walk all dogs
 	public void walkAllDogs() {
-		for (VirtualPet currentPets : pets.values()) {
-			if (pets instanceof AllDog) {
-				((AllDog) pets).walk();
+		for (VirtualPet currentPet : pets.values()) {
+			if (currentPet instanceof AllDog) {
+				((AllDog) currentPet).walk();
 			}
 		}
 	}
 
 	// clean all crates
 	public void cleanAllCrates() {
-		for (VirtualPet currentPets : pets.values()) {
-			if (pets instanceof OrganicDog) {
-				((OrganicDog) pets).cleanCrate();
+		for (VirtualPet currentPet : pets.values()) {
+			if (currentPet instanceof OrganicDog) {
+				((OrganicDog) currentPet).cleanCrate();
 			}
 		}
 	}
 
+	// if (currentPet instanceof OrganicCat) {
+	// litterWaste = orgCat.litterBox();
+	// }
+
 	// tick
 	public void petsTick() {
-		for (VirtualPet currentPets : pets.values()) {
-			if (pets instanceof OrganicCat) {
-				litterWaste = orgCat.collectWaste();
-				litterBox = litterBox + litterWaste;
+		for (VirtualPet currentPet : pets.values()) {
+			if (currentPet instanceof OrganicCat) {
+				litterWaste = ((OrganicCat) currentPet).collectWaste();
+				litterBox += litterWaste;
 			}
-			if (pets instanceof OrganicCat) {
-				litterWaste = orgCat.litterBox();
+			if (currentPet instanceof OrganicDog) {
+				((OrganicDog) currentPet).crateWaste += 1;
 			}
-			currentPets.tick();
-			orgDog.crateWaste += 1;
+			currentPet.tick();
 			litterWaste += 1;
 		}
+	}
+
+	public void orgDogHealth() {
+		System.out.println("\n------------------------Organic Dogs---------------------------");
+		System.out.println("Name\t|Health\t|Joy\t|Hunger\t|Thirst\t|Energy\t|Bored\t|Crate"
+				+ "\n--------|-------|-------|-------|-------|-------|-------|------");
+		for (VirtualPet currentPet : pets.values()) {
+			if (currentPet instanceof OrganicDog) {
+				System.out.println(currentPet.toString());
+			}
+		}
+	}
+
+	public void roboDogHealth() {
+		System.out.println("\n---------------Robotic Dogs---------------");
+		System.out.println("Name\t|Health\t|Joy\t|Bored\t|Oil Level" + "\n--------|-------|-------|-------|---------");
+		for (VirtualPet currentPet : pets.values()) {
+			if (currentPet instanceof RoboDog) {
+				System.out.println(currentPet.toString());
+			}
+		}
+	}
+
+	public void orgCatHealth() {
+		System.out.println("\n----------------Organic Cats--------------------");
+		System.out.println("Name\t|Health\t|Joy\t|Hunger\t|Thirst\t|Energy"
+				+ "\n--------|-------|-------|-------|-------|-------");
+		for (VirtualPet currentPet : pets.values()) {
+			if (currentPet instanceof OrganicCat) {
+				System.out.println(currentPet.toString());
+			}
+		}
+		System.out.println("\t\t\tCurrent Litter Waste: " + litterWaste);
+	}
+
+	public void roboCatHealth() {
+		System.out.println("\n-----------Robotic Cats-----------");
+		System.out.println("Name\t|Health\t|Joy\t|Oil Level" + "\n--------|-------|-------|---------");
+		for (VirtualPet currentPet : pets.values()) {
+			if (currentPet instanceof RoboCat) {
+				System.out.println(currentPet.toString());
+			}
+		}
+	}
+
+	public void detailedHealth() {
+		orgDogHealth();
+		roboDogHealth();
+		orgCatHealth();
+		roboCatHealth();
+	}
+
+	public void orgHealth() {
+		orgDogHealth();
+		orgCatHealth();
+	}
+
+	public void dogHealth() {
+		orgDogHealth();
+		roboDogHealth();
+	}
+
+	public void roboHealth() {
+		roboDogHealth();
+		roboCatHealth();
+	}
+
+	public void catHealth() {
+		orgDogHealth();
+		roboCatHealth();
+	}
+
+	public void typeOfPet() {
+		System.out.println("1) Organic Dog\n2) Robotic Dog\n3) Organic Cat\n4) Robotic Cat");
 	}
 
 	@Override

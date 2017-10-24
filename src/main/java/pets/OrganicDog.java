@@ -51,6 +51,10 @@ public class OrganicDog extends AllDog implements Organic {
 		hunger += 1;
 		thirst += 1;
 		crateWaste += 1;
+		if (crateWaste >= 8) {
+			health -= 4;
+			happiness -= 2;
+		}
 		super.tick();
 	}
 
@@ -115,17 +119,13 @@ public class OrganicDog extends AllDog implements Organic {
 		Math.min(0, happiness);
 		Math.max(happiness, 10);
 		crateWaste *= 0;
-		if (crateWaste >= 8) {
-			health -= 4;
-			happiness -= 2;
-		}
 	}
 
 	@Override
 	public String toString() {
 		return this.name.substring(0, 1).toUpperCase() + this.name.substring(1).toLowerCase() + "\t|" + this.health
 				+ "\t|" + this.happiness + "\t|" + this.hunger + "\t|" + this.thirst + "\t|" + this.energy + "\t|"
-				+ this.boredom;
+				+ this.boredom + "\t|" + this.crateWaste;
 	}
 
 }
