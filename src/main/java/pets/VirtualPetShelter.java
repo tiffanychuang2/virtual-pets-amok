@@ -48,24 +48,6 @@ public class VirtualPetShelter {
 			}
 		}
 	}
-	//
-	// // feed all of the organic cats
-	// public void feedCats() {
-	// for (VirtualPet currentPets : pets.values()) {
-	// if (pets instanceof OrganicCat) {
-	// ((OrganicCat) pets).feed();
-	// }
-	// }
-	// }
-	//
-	// // feed all organic dogs
-	// public void feedDogs() {
-	// for (VirtualPet currentPets : pets.values()) {
-	// if (pets instanceof OrganicDog) {
-	// ((OrganicDog) pets).feed();
-	// }
-	// }
-	// }
 
 	// hydrate all organic pets
 	public void hydrateAllOrganic() {

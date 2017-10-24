@@ -107,21 +107,6 @@ public class OrganicCat extends VirtualPet implements Organic {
 		return litterWaste;
 	}
 
-	// // feed all of the pets in the shelter
-	// public void feedPets() {
-	// for (VirtualPet currentPets : pets.values()) {
-	// currentPets.feed();
-	// }
-	// }
-	//
-	// // water all of the pets in the shelter
-	// public void hydratePets() {
-	// for (VirtualPet currentPets : pets.values()) {
-	// currentPets.hydrate();
-	// }
-	//
-	// }
-
 	@Override
 	public String toString() {
 		return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase() + "\t|" + health + "\t|" + happiness
