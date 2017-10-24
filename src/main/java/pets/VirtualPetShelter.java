@@ -75,30 +75,14 @@ public class VirtualPetShelter {
 			}
 		}
 	}
-	//
-	// // hydrate all of the organic cats
-	// public void hydrateCats() {
-	// for (VirtualPet currentPets : pets.values()) {
-	// if (pets instanceof OrganicCat) {
-	// ((OrganicCat) pets).hydrate();
-	// }
-	// }
-	// }
-	//
-	// // hydrate all organic dogs
-	// public void hydrateDogs() {
-	// for (VirtualPet currentPets : pets.values()) {
-	// if (pets instanceof OrganicDog) {
-	// ((OrganicDog) pets).hydrate();
-	// }
-	// }
-	// }
 
 	// oil all robopets
 	public void oilAllRobots() {
 		for (VirtualPet currentPets : pets.values()) {
 			if (pets instanceof Robot) {
 				((Robot) pets).addOil();
+				roboCat.oilLevel = 10;
+				roboDog.oilLevel = 10;
 			}
 		}
 	}
@@ -132,6 +116,8 @@ public class VirtualPetShelter {
 				litterWaste = orgCat.litterBox();
 			}
 			currentPets.tick();
+			orgDog.crateWaste += 1;
+			litterWaste += 1;
 		}
 	}
 

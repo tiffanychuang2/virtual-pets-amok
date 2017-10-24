@@ -56,11 +56,10 @@ public class OrganicDog extends AllDog implements Organic {
 
 	@Override
 	public void play() {
-		Math.min(0, crateWaste);
-		Math.max(crateWaste, 10);
+		Math.min(0, energy);
+		Math.max(energy, 10);
 		energy -= 2;
 		super.play();
-		crateWaste *= 0;
 	}
 
 	@Override
@@ -97,9 +96,15 @@ public class OrganicDog extends AllDog implements Organic {
 
 	@Override
 	public void walk() {
-		Math.min(0, crateWaste);
-		Math.max(crateWaste, 10);
-		crateWaste *= 0;
+		Math.min(0, boredom);
+		Math.max(boredom, 10);
+		Math.min(0, health);
+		Math.max(health, 10);
+		Math.min(0, happiness);
+		Math.max(happiness, 10);
+		boredom -= 2;
+		health += 1;
+		happiness += 2;
 	}
 
 	public void cleanCrate() {
@@ -116,23 +121,11 @@ public class OrganicDog extends AllDog implements Organic {
 		}
 	}
 
-	// feed all of the pets in the shelter
-	// public void feedPets() {
-	// for (VirtualPet currentPets : pets.values()) {
-	// currentPets.feed();
-	// }
-	// }
-
-	// water all of the pets in the shelter
-	// public void hydratePets() {
-	// for (VirtualPet currentPets : pets.values()) {
-	// currentPets.hydrate();
-	// }
-
 	@Override
 	public String toString() {
-		return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase() + "\t|" + health + "\t|" + happiness
-				+ "\t|" + hunger + "\t|" + thirst + "\t|" + energy + "\t|" + boredom;
+		return this.name.substring(0, 1).toUpperCase() + this.name.substring(1).toLowerCase() + "\t|" + this.health
+				+ "\t|" + this.happiness + "\t|" + this.hunger + "\t|" + this.thirst + "\t|" + this.energy + "\t|"
+				+ this.boredom;
 	}
 
 }

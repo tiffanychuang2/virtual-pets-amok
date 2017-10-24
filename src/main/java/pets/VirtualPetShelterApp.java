@@ -14,9 +14,9 @@ public class VirtualPetShelterApp {
 		OrganicDog charlie = new OrganicDog("charlie", "organic dog, smart, playful, majestic, loving", 6, 8, 7, 6, 5,
 				7, 0);
 		OrganicDog angus = new OrganicDog("angus", "organic dog, derpy, hyper, loving, loyal, destructive", 9, 9, 9, 8,
-				9, 6, 1);
+				9, 6, 0);
 		RoboDog scooby = new RoboDog("scooby", "robodog, sassy, sneaky, sarcastic, mischievous", 8, 9, 9, 6);
-		RoboDog snoopy = new RoboDog("scooby", "robodog, hungry, skittish, playful, happy", 7, 9, 6, 9);
+		RoboDog snoopy = new RoboDog("snoopy", "robodog, hungry, skittish, playful, happy", 7, 9, 6, 9);
 		OrganicCat smellyCat = new OrganicCat("smelly", "organic feline, smelly, musical", 2, 10, 2, 5, 1);
 		OrganicCat mrsNorris = new OrganicCat("norris", "organic feline, fluffy, sneaky, guard cat, tattle tale", 6, 9,
 				7, 5, 1);
@@ -57,14 +57,21 @@ public class VirtualPetShelterApp {
 
 			} else if (choice.equals("2")) { // hydrate organic pets
 				myPet.hydrateAllOrganic();
-				System.out.println("Thank you, we were very thirsty!");
 
 				System.out.println("Drools profusely.");
+				System.out.println("\nThank you, we were very thirsty!");
 				System.out.println("");
 
 				orgHealth();
 
-			} else if (choice.equals("3")) { // play with a pet
+			} else if (choice.equals("3")) { // oil robotic pets
+				myPet.oilAllRobots();
+				System.out.println("Oil added!");
+				System.out.println("");
+
+				roboHealth();
+
+			} else if (choice.equals("4")) { // play with a pet
 				System.out.println("You have selected to play with a pet!  Which pet would you like to play with?");
 				for (VirtualPet currentPets : myPet.petValues()) {
 					System.out.println("[" + currentPets.getName().substring(0, 1).toUpperCase()
@@ -82,27 +89,27 @@ public class VirtualPetShelterApp {
 
 				detailedHealth();
 
-			} else if (choice.equals("4")) { // walk dogs
+			} else if (choice.equals("5")) { // walk dogs
 				myPet.walkAllDogs();
 				System.out.println("Thank you for walking the dogs!");
 
 				dogHealth();
 
-			} else if (choice.equals("5")) { // clean org dog crates
+			} else if (choice.equals("6")) { // clean org dog crates
 				myPet.cleanAllCrates();
 				System.out.println("All the dog crates are clean!");
 
 				orgHealth();
 
 				// Select 6 to clean the shelter litter box.
-			} else if (choice.equals("6")) {
+			} else if (choice.equals("7")) {
 				myPet.orgCat.litterBox();
 				System.out.println("The shelter litter box is now clean!");
 
 				orgHealth();
 
 				// Select 7 to adopt a pet from the shelter.
-			} else if (choice.equals("7")) {
+			} else if (choice.equals("8")) {
 				System.out.println("Which pup would you like to adopt?\n");
 				// currentPups();
 				String name = input.nextLine().toLowerCase();
@@ -119,7 +126,7 @@ public class VirtualPetShelterApp {
 				detailedHealth();
 
 				// Select 8 to admit a pet to the shelter.
-			} else if (choice.equals("8")) {
+			} else if (choice.equals("9")) {
 				System.out.println("We're happy to shelter your pet.  What is your pet's name?");
 				String name = input.nextLine().toLowerCase();
 
@@ -185,10 +192,10 @@ public class VirtualPetShelterApp {
 
 	public static void options() {
 		System.out.println("Select 1 to feed all organic pets." + "\nSelect 2 to give water to all organic pets."
-				+ "\nSelect 3 to play with a single pet." + "\nSelect 4 to walk all the dogs."
-				+ "\nSelect 5 to clean all organic dog crates." + "\nSelect 6 to clean the shelter litter box."
-				+ "\nSelect 7 to adopt a pet from the shelter." + "\nSelect 8 to admit a pet to the shelter."
-				+ "\nType \"exit\" to exit.");
+				+ "\nSelect 3 to add oil to all robotic pets." + "\nSelect 4 to play with a single pet."
+				+ "\nSelect 5 to walk all the dogs." + "\nSelect 6 to clean all organic dog crates."
+				+ "\nSelect 7 to clean the shelter litter box." + "\nSelect 8 to adopt a pet from the shelter."
+				+ "\nSelect 9 to admit a pet to the shelter." + "\nType \"exit\" to exit.");
 	}// closes options
 
 	public static void currentHealth() {
@@ -199,19 +206,7 @@ public class VirtualPetShelterApp {
 					+ "|" + currentPets.getHappiness());
 		}
 
-		// add cages//add litterbox
 	}// closes currentHealth
-
-	// public static void orgDogHealth() {
-	// System.out.println("Name\t|Health\t|Joy\t|Hunger\t|Thirst\t|Energy\t|Boredom"
-	// + "\n--------|-------|-------|-------|-------|-------|-------");
-	// for (VirtualPet currentPets : myPet.petValues()) {
-	// if (myPet.petValues() instanceof OrganicDog) {
-	// System.out.println(currentPets.getName().substring(0, 1).toUpperCase()
-	// + currentPets.getName().substring(1).toLowerCase() + "\t" + "|" +
-	// currentPets.getHealth() + "\t|" + currentPets.getHappiness() + "\t|" + );
-	// }
-	// }
 
 	public static void orgDogHealth() {
 		System.out.println("\n--------------------Organic Dogs------------------------");
@@ -222,7 +217,7 @@ public class VirtualPetShelterApp {
 				System.out.println(currentPets.toString());
 			}
 		}
-		System.out.println("\t\t\t\tCurrent Crate Waste: " + myPet.orgDog.crateWaste);
+		System.out.println("\t\t\t\tCurrent Crate Waste: " + myPet.orgDog.getCrateWaste());
 	}
 
 	public static void roboDogHealth() {
@@ -244,7 +239,7 @@ public class VirtualPetShelterApp {
 				System.out.println(currentPets.toString());
 			}
 		}
-		System.out.println("\t\t\tCurrent Litter Waste: " + myPet.orgCat.litterWaste);
+		System.out.println("\t\t\tCurrent Litter Waste: " + myPet.orgCat.getLitterWaste());
 	}
 
 	public static void roboCatHealth() {
